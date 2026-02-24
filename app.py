@@ -22,15 +22,15 @@ div[data-testid="stMetricValue"] {
 """, unsafe_allow_html=True)
 
 # ส่วนหัวของเว็บไซต์ (Header)
-st.title("🧠 Neural Network: ระบบคัดกรองพนักงาน (HR Screening)")
-st.markdown("จำลองโครงข่ายประสาทเทียม **Single Layer Perceptron** เพื่อพยากรณ์โอกาสในการเรียกสัมภาษณ์งาน")
+st.title("Neural Network By Muhaha")
+st.markdown("จำลองโครงข่ายประสาทเทียม Single Layer Perceptron")
 st.divider() # เส้นคั่นเพิ่ม White Space
 
 # ==========================================
 # 2. แถบตั้งค่าด้านข้าง (Sidebar Layout) - จัดกลุ่มลดความแออัด
 # ==========================================
 with st.sidebar:
-    st.header("⚙️ ตั้งค่าพารามิเตอร์")
+    st.header(" ตั้งค่าพารามิเตอร์")
     st.markdown("ปรับแต่งค่าของโมเดล (Hyperparameters)")
     
     w1 = st.number_input("Weight 1 (ประสบการณ์)", value=0.5, step=0.1)
@@ -39,12 +39,12 @@ with st.sidebar:
     alpha = st.number_input("Learning Rate (α)", value=0.2, step=0.1)
     epochs = st.slider("รอบการเรียนรู้ (Epochs)", min_value=1, max_value=20, value=5)
     
-    st.info("💡 โมเดลจะนำค่าเหล่านี้ไปใช้เป็นจุดเริ่มต้นในการเรียนรู้")
+    st.info("โมเดลจะนำค่าเหล่านี้ไปใช้เป็นจุดเริ่มต้นในการเรียนรู้")
 
 # ==========================================
 # 3. พื้นที่หลัก: นำเข้าข้อมูล (Main Content: Data Import)
 # ==========================================
-st.header("1. 📂 นำเข้าชุดข้อมูล (Data Import)")
+st.header("1. นำเข้าชุดข้อมูล (Data Import)")
 uploaded_file = st.file_uploader("อัปโหลดไฟล์ CSV (hr_dataset.csv) เพื่อเริ่มต้น", type=['csv'])
 
 if uploaded_file is not None:
@@ -64,7 +64,7 @@ if uploaded_file is not None:
         def threshold_function(net):
             return 1 if net >= 0 else 0
 
-        st.header("2. 🚀 กระบวนการเรียนรู้ (Training Process)")
+        st.header("2. กระบวนการเรียนรู้ (Training Process)")
         
         if st.button("เริ่มฝึกสอนโมเดล (Train Model)", use_container_width=True):
             history = []
@@ -90,7 +90,7 @@ if uploaded_file is not None:
                     })
             
             # จัด Layout แสดงผลลัพธ์ค่าน้ำหนักด้วย st.metric ให้ดูเป็น Dashboard มืออาชีพ
-            st.success("🎉 โมเดลเรียนรู้เสร็จสิ้น! ได้ค่าน้ำหนักที่เหมาะสมที่สุดดังนี้:")
+            st.success("โมเดลเรียนรู้เสร็จสิ้น! ได้ค่าน้ำหนักที่เหมาะสมที่สุดดังนี้:")
             col_m1, col_m2, col_m3 = st.columns(3)
             col_m1.metric("Weight 1 (w1)", round(w1,4))
             col_m2.metric("Weight 2 (w2)", round(w2,4))
@@ -109,7 +109,7 @@ if uploaded_file is not None:
         # ==========================================
         # 5. พื้นที่หลัก: การพยากรณ์ (Main Content: Prediction)
         # ==========================================
-        st.header("3. 🔮 ทดสอบพยากรณ์ (Prediction)")
+        st.header("3. ทดสอบพยากรณ์ (Prediction)")
         st.markdown("จำลองปรับค่าคุณสมบัติของผู้สมัคร เพื่อให้ AI ทำนายผลการคัดกรอง")
         
         # จัด Layout แบ่งซ้าย-ขวา สำหรับส่วนกรอกข้อมูล
@@ -131,11 +131,12 @@ if uploaded_file is not None:
                 prediction = threshold_function(net_result)
                 
                 if prediction == 1:
-                    st.success(f"### 🎉 ผลการพยากรณ์: 'เรียกสัมภาษณ์งาน' (Pass)\nค่า Net = {round(net_result, 4)} ซึ่งผ่านเกณฑ์ (>= 0)")
+                    st.success(f"### ผลการพยากรณ์: 'เรียกสัมภาษณ์งาน' (Pass)\nค่า Net = {round(net_result, 4)} ซึ่งผ่านเกณฑ์ (>= 0)")
                 else:
-                    st.error(f"### ❌ ผลการพยากรณ์: 'ไม่ผ่านเกณฑ์' (Fail)\nค่า Net = {round(net_result, 4)} ซึ่งต่ำกว่าเกณฑ์ (< 0)")
+                    st.error(f"### ผลการพยากรณ์: 'ไม่ผ่านเกณฑ์' (Fail)\nค่า Net = {round(net_result, 4)} ซึ่งต่ำกว่าเกณฑ์ (< 0)")
             else:
-                st.warning("⚠️ กรุณากดปุ่ม 'เริ่มฝึกสอนโมเดล' ในข้อ 2 ก่อน เพื่อให้ AI เรียนรู้ค่าน้ำหนักครับ!")
+                st.warning("กรุณากดปุ่ม 'เริ่มฝึกสอนโมเดล' ในข้อ 2 ก่อน เพื่อให้ AI เรียนรู้ค่าน้ำหนักครับ!")
 
     except Exception as e:
         st.error(f"เกิดข้อผิดพลาดในการอ่านไฟล์: {e}")
+
