@@ -22,7 +22,7 @@ div[data-testid="stMetricValue"] {
 """, unsafe_allow_html=True)
 
 # ส่วนหัวของเว็บไซต์ (Header)
-st.title(" Neural Network: ระบบคัดกรองพนักงาน (HR Screening)")
+st.title("🧠 Neural Network: ระบบคัดกรองพนักงาน (HR Screening)")
 st.markdown("จำลองโครงข่ายประสาทเทียม **Single Layer Perceptron** เพื่อพยากรณ์โอกาสในการเรียกสัมภาษณ์งาน")
 st.divider() # เส้นคั่นเพิ่ม White Space
 
@@ -30,7 +30,7 @@ st.divider() # เส้นคั่นเพิ่ม White Space
 # 2. แถบตั้งค่าด้านข้าง (Sidebar Layout) - จัดกลุ่มลดความแออัด
 # ==========================================
 with st.sidebar:
-    st.header("ตั้งค่าพารามิเตอร์")
+    st.header("⚙️ ตั้งค่าพารามิเตอร์")
     st.markdown("ปรับแต่งค่าของโมเดล (Hyperparameters)")
     
     w1 = st.number_input("Weight 1 (ประสบการณ์)", value=0.5, step=0.1)
@@ -39,7 +39,7 @@ with st.sidebar:
     alpha = st.number_input("Learning Rate (α)", value=0.2, step=0.1)
     epochs = st.slider("รอบการเรียนรู้ (Epochs)", min_value=1, max_value=20, value=5)
     
-    st.info("โมเดลจะนำค่าเหล่านี้ไปใช้เป็นจุดเริ่มต้นในการเรียนรู้")
+    st.info("💡 โมเดลจะนำค่าเหล่านี้ไปใช้เป็นจุดเริ่มต้นในการเรียนรู้")
 
 # ==========================================
 # 3. พื้นที่หลัก: นำเข้าข้อมูล (Main Content: Data Import)
@@ -53,7 +53,8 @@ if uploaded_file is not None:
         df.columns = ['ลำดับ', 'Exp_x1', 'Skill_x2', 'Target_y', 'คำอธิบาย']
         
         # แสดงตารางแบบซ่อนได้ (Expander) เพื่อประหยัดพื้นที่
-        with st.dataframe(df, use_container_width=True)
+        with st.expander("", expanded=True):
+            st.dataframe(df, use_container_width=True)
             
         st.divider()
 
@@ -138,4 +139,3 @@ if uploaded_file is not None:
 
     except Exception as e:
         st.error(f"เกิดข้อผิดพลาดในการอ่านไฟล์: {e}")
-
