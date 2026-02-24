@@ -5,7 +5,7 @@ import pandas as pd
 # 1. ส่วนตั้งค่าหน้าจอและ UI
 # ==========================================
 st.set_page_config(page_title="HR Screening Neural Network", layout="wide")
-st.title("🧠 Neural Network เบื้องต้น: ระบบคัดกรองพนักงาน (HR Screening)")
+st.title("Neural Network เบื้องต้น: ระบบคัดกรองพนักงาน (HR Screening)")
 st.markdown("โปรแกรมจำลอง **Single Layer Perceptron** เพื่อพยากรณ์การเรียกสัมภาษณ์งาน")
 
 #-------------------โค้ดฟอนต์---------------------------
@@ -37,7 +37,7 @@ if uploaded_file is not None:
         # เปลี่ยนชื่อคอลัมน์ให้เรียกใช้งานง่ายในโค้ด (อ้างอิงจากโครงสร้างข้อมูล HR Screening)
         df.columns = ['ลำดับ', 'Exp_x1', 'Skill_x2', 'Target_y', 'คำอธิบาย']
         
-        st.success("✅ โหลดข้อมูลสำเร็จ!")
+        st.success("โหลดข้อมูลสำเร็จ!")
         st.dataframe(df, use_container_width=True)
         
         # ==========================================
@@ -66,7 +66,7 @@ if uploaded_file is not None:
         # 5. กระบวนการเรียนรู้ (Training Process)
         # ==========================================
         st.header("3. กระบวนการเรียนรู้ของโมเดล")
-        if st.button("🚀 เริ่มฝึกสอนโมเดล (Train Model)"):
+        if st.button("เริ่มฝึกสอนโมเดล (Train Model)"):
             
             history = []
             
@@ -119,7 +119,7 @@ if uploaded_file is not None:
                 prediction = threshold_function(net_result)
                 
                 if prediction == 1:
-                    st.success(f"🎉 ผลการพยากรณ์: **1 (เรียกสัมภาษณ์งาน)** (ค่า Net = {round(net_result, 4)})")
+                    st.success(f" ผลการพยากรณ์: **1 (เรียกสัมภาษณ์งาน)** (ค่า Net = {round(net_result, 4)})")
                 else:
                     st.error(f"❌ ผลการพยากรณ์: **0 (ไม่ผ่านเกณฑ์)** (ค่า Net = {round(net_result, 4)})")
             else:
@@ -129,4 +129,5 @@ if uploaded_file is not None:
         st.error(f"เกิดข้อผิดพลาดในการอ่านไฟล์: {e}")
 else:
 
-    st.info("💡 โปรดลากไฟล์ CSV มาวาง หรือคลิกที่ปุ่ม Browse files เพื่อเริ่มต้น")
+    st.info(" โปรดลากไฟล์ CSV มาวาง หรือคลิกที่ปุ่ม Browse files เพื่อเริ่มต้น")
+
