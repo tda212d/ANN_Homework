@@ -5,8 +5,8 @@ import pandas as pd
 # 1. ส่วนตั้งค่าหน้าจอและ UI
 # ==========================================
 st.set_page_config(page_title="HR Screening Neural Network", layout="wide")
-st.title("Neural Network เบื้องต้น: ระบบคัดกรองพนักงาน (HR Screening)")
-st.markdown("โปรแกรมจำลอง **Single Layer Perceptron** เพื่อพยากรณ์การเรียกสัมภาษณ์งาน")
+st.title("Neural Network Simulator")
+st.markdown("โปรแกรมจำลอง Single Layer Perceptron เพื่อพยากรณ์")
 
 #-------------------โค้ดฟอนต์---------------------------
 st.markdown("""
@@ -130,5 +130,6 @@ if uploaded_file is not None:
 else:
 
     st.info(" โปรดลากไฟล์ CSV มาวาง หรือคลิกที่ปุ่ม Browse files เพื่อเริ่มต้น")
+
 
 
