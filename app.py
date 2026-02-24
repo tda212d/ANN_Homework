@@ -9,15 +9,15 @@ st.title("🧠 Neural Network เบื้องต้น: ระบบคัด
 st.markdown("โปรแกรมจำลอง **Single Layer Perceptron** เพื่อพยากรณ์การเรียกสัมภาษณ์งาน")
 
 #-------------------โค้ดฟอนต์---------------------------
-st.markdown(""" 
+st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 html, body, [class*="css"], [class*="st-"]  {
-    font-family: 'Prompt', sans-serif !important;
+    font-family: 'Kanit', sans-serif !important;
 }
 </style>
-""", unsafe_allow_html=True) 
+""", unsafe_allow_html=True)
 #----------------------------------------------------
 
 # ==========================================
@@ -128,4 +128,5 @@ if uploaded_file is not None:
     except Exception as e:
         st.error(f"เกิดข้อผิดพลาดในการอ่านไฟล์: {e}")
 else:
+
     st.info("💡 โปรดลากไฟล์ CSV มาวาง หรือคลิกที่ปุ่ม Browse files เพื่อเริ่มต้น")
