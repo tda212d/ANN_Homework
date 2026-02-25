@@ -110,14 +110,14 @@ if uploaded_file is not None:
         # 5. พื้นที่หลัก: การพยากรณ์ (Main Content: Prediction)
         # ==========================================
         st.header("3. ทดสอบพยากรณ์ (Prediction)")
-        st.markdown("จำลองปรับค่าคุณสมบัติของผู้สมัคร เพื่อให้ AI ทำนายผลการคัดกรอง")
+        st.markdown("จำลองปรับค่าคุณสมบัติ เพื่อให้ AI ทำนายผลการคัดกรอง")
         
         # จัด Layout แบ่งซ้าย-ขวา สำหรับส่วนกรอกข้อมูล
         col_pred1, col_pred2 = st.columns(2)
         with col_pred1:
-            test_x1 = st.slider("ประสบการณ์ทำงาน (Exp)", 0.0, 1.0, 0.5, help="0.0 = ไม่มีประสบการณ์, 1.0 = มีประสบการณ์สูง")
+            test_x1 = st.slider("x", 0.0, 1.0, 0.5, help="0.0 = x ต้ำ, 1.0 = x สูง")
         with col_pred2:
-            test_x2 = st.slider("คะแนนทักษะ (Skill)", 0.0, 1.0, 0.5, help="0.0 = ทักษะต่ำ, 1.0 = ทักษะดีเยี่ยม")
+            test_x2 = st.slider("y", 0.0, 1.0, 0.5, help="0.0 = y ต่ำ, 1.0 = y สูง")
 
         st.write("") # เคาะบรรทัดเพิ่ม White space
 
@@ -131,7 +131,7 @@ if uploaded_file is not None:
                 prediction = threshold_function(net_result)
                 
                 if prediction == 1:
-                    st.success(f"### ผลการพยากรณ์: 'เรียกสัมภาษณ์งาน' (Pass)\nค่า Net = {round(net_result, 4)} ซึ่งผ่านเกณฑ์ (>= 0)")
+                    st.success(f"### ผลการพยากรณ์: 'ผ่านเกณฑ์' (Pass)\nค่า Net = {round(net_result, 4)}  (>= 0)")
                 else:
                     st.error(f"### ผลการพยากรณ์: 'ไม่ผ่านเกณฑ์' (Fail)\nค่า Net = {round(net_result, 4)} ซึ่งต่ำกว่าเกณฑ์ (< 0)")
             else:
@@ -139,4 +139,5 @@ if uploaded_file is not None:
 
     except Exception as e:
         st.error(f"เกิดข้อผิดพลาดในการอ่านไฟล์: {e}")
+
 
